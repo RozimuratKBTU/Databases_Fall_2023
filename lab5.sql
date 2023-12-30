@@ -48,13 +48,14 @@ select count(*) as amount_of_cus
 from customers
 where cust_name is not null;
 
+
 --6
 select min(purch_amt) as min_purchase
 from orders;
 
 --7
 select * from customers
-where cust_name LIKE '%n';
+where cust_name LIKE '%s';
 
 --8
 select zakaz.* from orders zakaz
@@ -79,6 +80,8 @@ select *
 from customers
 where customer_id in (select customer_id from orders where purch_amt> 100);
 
+select salesman_id, sum(purch_amt)
+from orders group by salesman_id  ;
 
 --10
 SELECT SUM(grade) AS total_grade
@@ -90,6 +93,8 @@ where cust_name is not null;
 
 ---12
 select max(grade) from customers;
+
+
 
 
 
